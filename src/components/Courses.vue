@@ -25,41 +25,24 @@
                           <div class="d-flex align-center flex-column">
                               <div class="text-subtitle-2">With props</div>
 
-                              <v-card
-                              width="400"
-                              title="This is a title"
-                              subtitle="This is a subtitle"
-                              text="This is content"
-                              ></v-card>
-
                               <div class="mt-4 text-subtitle-2">With slots</div>
-
-                              <v-card width="400">
-                              <template v-slot:title>
-                                  This is a title
-                              </template>
-
-                              <template v-slot:subtitle>
-                                  This is a subtitle
-                              </template>
-
-                              <template v-slot:text>
-                                  This is content
-                              </template>
-                              </v-card>
 
                               <div class="mt-4 text-subtitle-2">With markup</div>
 
                               <v-card width="400">
                               <v-card-item>
-                                  <v-card-title>This is a title</v-card-title>
+                                  <v-card-title>{{componentTitle}}</v-card-title>
 
-                                  <v-card-subtitle>This is a subtitle</v-card-subtitle>
+                                 
                               </v-card-item>
 
                               <v-card-text>
-                                  This is content
-                              </v-card-text>
+                                <v-list
+                                    :items="courses"
+                                    item-title="courseName"
+                                    item-value="id"
+                                ></v-list>
+                               </v-card-text>
                               </v-card>
                           </div>
                       </v-row>
@@ -68,6 +51,72 @@
           </v-container>
   </div>
 </template>
-<script setup>
-const variants = ['elevated', 'flat', 'tonal', 'outlined']
+<script>
+export default {
+  // Properties returned from data() become reactive state
+  // and will be exposed on `this`.
+  data() {
+    return {
+      courses:[
+        {
+            id: 1,
+            courseName: 'Financial Economics'
+        },
+        {
+            id: 2,
+            courseName: 'Psychology'
+        },
+        {
+            id: 3,
+            courseName: 'Computer Science'
+        },
+        {
+            id: 4,
+            courseName: 'Financial Engineering'
+        },
+        {
+            id: 5,
+            courseName: 'Medicine'
+        },
+        {
+            id: 6,
+            courseName: 'Education'
+        },
+        {
+            id: 7,
+            courseName: 'Architecture'
+        },
+        {
+            id: 8,
+            courseName: 'Forestry'
+        },
+        {
+            id: 9,
+            courseName: 'Law'
+        },
+        {
+            id: 10,
+            courseName: 'Hospitality'
+        }
+    ],
+    componentTitle: 'Courses at Strath Uni'
+    }
+  },
+
+  // Methods are functions that mutate state and trigger updates.
+  // They can be bound as event handlers in templates.
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
+
+  // Lifecycle hooks are called at different stages
+  // of a component's lifecycle.
+  // This function will be called when the component is mounted.
+  mounted() {
+    console.log(`The initial count is ${this.count}.`)
+  }
+}
 </script>
+
