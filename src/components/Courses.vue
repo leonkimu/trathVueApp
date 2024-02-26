@@ -4,17 +4,17 @@
               <v-layout column>
                   <v-carousel>
                       <v-carousel-item
-                          src="./images/courses1.jpg"
+                          src="/images/courses1.jpg"
                           cover
                       ></v-carousel-item>
 
                       <v-carousel-item
-                          src="./images/courses2.jpg"
+                          src="/images/courses2.jpg"
                           cover
                       ></v-carousel-item>
 
                       <v-carousel-item
-                          src="./images/courses3.jpg"
+                          src="/images/courses3.jpg"
                           cover
                       ></v-carousel-item>
                   </v-carousel>
