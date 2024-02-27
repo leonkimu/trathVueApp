@@ -4,17 +4,17 @@
               <v-layout column>
                   <v-carousel>
                       <v-carousel-item
-                          src="./images/home1.jpg"
+                          src="https://cdn.vuetifyjs.com/images/home1.jpg"
                           cover
                       ></v-carousel-item>
 
                       <v-carousel-item
-                          src="./images/home2.jpg"
+                          src="https://cdn.vuetifyjs.com/images/home2.jpg"
                           cover
                       ></v-carousel-item>
 
                       <v-carousel-item
-                          src="./images/home3.jpg"
+                          src="https://cdn.vuetifyjs.com/images/home3.jpg"
                           cover
                       ></v-carousel-item>
                   </v-carousel>
