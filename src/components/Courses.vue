@@ -43,6 +43,34 @@
                                     item-value="id"
                                 ></v-list>
                                </v-card-text>
+                               <v-card width="400">
+                                <v-card-item>
+                                    <v-card-title>{{ componentTitle }}</v-card-title>
+                                </v-card-item>
+
+                                <v-card-text>
+                                    <v-table>
+                                        <thead>
+                                        <tr>
+                                            <th class="text-left">
+                                            Name
+                                            </th>
+                                           
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr
+                                            v-for="users in myusers"
+                                            :key="users.id"
+                                        >
+                                            <td>
+                                                <v-btn to="/newcomponent" color="primary">{{ users.username }}</v-btn>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </v-table>
+                                </v-card-text>
+                                </v-card>
                               </v-card>
                           </div>
                       </v-row>
@@ -52,6 +80,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
   // Properties returned from data() become reactive state
   // and will be exposed on `this`.
@@ -99,6 +128,7 @@ export default {
             courseName: 'Hospitality'
         }
     ],
+    myUsers:{},
     componentTitle: 'Courses at Strath Uni'
     }
   },
@@ -108,6 +138,20 @@ export default {
   methods: {
     increment() {
       this.count++
+    },
+    async getMyUsers(){
+        const apiUrl = 'http://127.0.0.1:8000/api/users'; // Replace with your API endpoint URL
+
+        axios.get(apiUrl)
+            .then((response) => {
+                this.myusers = response.data;
+                console.log(this.myusers)
+
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+
     }
   },
 
@@ -115,7 +159,8 @@ export default {
   // of a component's lifecycle.
   // This function will be called when the component is mounted.
   mounted() {
-    console.log(`The initial count is ${this.count}.`)
+    console.log(this.courses)
+    this.getMyUsers
   }
 }
 </script>
